@@ -1,0 +1,60 @@
+﻿		<<Interface>>
+			Shape
+
+
+Square		Cercle		Triangle
+
+Ceci c'est avant et on va optimiser.
+
+public class Dessin 1{
+
+	public void dessinerVoitureAvecCercle(){
+		Shape s = new Cercle();
+	}
+}
+
+public class Dessin 2{
+
+	public void dessinerVoitureAvecCarre(){
+		Shape s = new Square();
+	}
+}
+
+
+On peut le faire avec Stratégy
+
+
+public class Dessin {
+	public void dessinerVoiture(Strategy st){
+		Shape s = st.createShape();
+	}
+}
+
+interface Strategy{
+	public Shape createShape();
+}
+
+public class SquareStrategy implements Strategy{
+	public Shape createShape(){
+		return new Square();
+	}
+}
+
+Mnt on peut aussi le faire avec une template Methode :
+
+	public abstract class Dessin{
+		public abstract Shape createShape();
+		public void dessinerVoiture(){
+			Shape s = this.createShape();
+		}
+		
+	}
+	
+	public class DessineAvecCarre extends Dessin{
+		public Shape createShape(){
+			return new Square();
+		}
+	}
+
+Un Abstract Factory c'est une stratégy quand on fait des new
+Un Factory Method c'est une template method quand on fait des new

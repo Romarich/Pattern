@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class ListeMot {
+public class ListeMot implements Strategy{
+	private Strategy decoratedStrategy;
+	private int compteur;
 	public List<String> list;
 	private BufferedReader input;
 	
@@ -21,6 +23,7 @@ public class ListeMot {
 				list.add(mot);
 			}
 		}
+		this.compteur = 0;
 	}
 	
 	public void affiche(Strategy s) throws IOException {
@@ -28,6 +31,14 @@ public class ListeMot {
 			if(s.execute(mot)) System.out.println(mot);
 		}
 	}
-	
-	
+
+	@Override
+	public boolean execute(String mot) throws IOException {
+		if(decoratedStrategy.execute(mot)) {
+			compteur++;
+			return true;
+		} 
+		return false;
+	}
+
 }
