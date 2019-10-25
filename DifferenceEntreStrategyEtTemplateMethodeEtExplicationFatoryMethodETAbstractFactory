@@ -58,3 +58,14 @@ Mnt on peut aussi le faire avec une template Methode :
 
 Un Abstract Factory c'est une stratégy quand on fait des new
 Un Factory Method c'est une template method quand on fait des new
+
+
+Dans une seule classe pour trouver une Template Method FACILE.
+
+Si on a une classe abstraite avec des methodes abstraites et concrete qui appelle des methodes abstraites 
+alors c'est une Template methode
+
+Facade => si on a une seule instantiation et on a une liste des autres objets. et c'est juste une classe qui dit a
+chacun des elements fait ça fait ça fait ça
+
+State c'est si on a des enum avec des states.
