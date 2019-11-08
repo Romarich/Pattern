@@ -1,0 +1,22 @@
+Pattern 1 : Composite
+	IComponent -> Partie
+	operation() -> demande() , getNiveau()
+	Composite -> Groupe
+	Leaf -> Valeur
+
+Pattern 2 : Visitor
+	Client -> Main
+	Element -> Partie
+	ConcreteElement -> Valeur, Groupe
+	Visitor	-> Traitement
+	ConcreteVisitor -> Totaliseur, ListeurNom, Listeur
+	visit() -> traiteValeur(), traiteGroupe()
+	accept() -> demande()
+
+Pattern 3 : Builder
+	Product -> Partie 
+	Builder -> Fabriquant
+	CompositeBuilder -> Fabriquant
+	Director -> Lecteur
+	buildPart() -> construireGroupe, construireValeur
+	getResult() -> getResultat()

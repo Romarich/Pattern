@@ -1,0 +1,41 @@
+Singleton
+	Singleton : EstVivante
+		    EstMorte
+	getInstance() -> getInstance()
+
+Observer
+	Subject -> JeuDeLaVie
+	observerCollection : this.espion
+	register() -> attacher()
+	unregister() -> detacher()
+	notify() -> prevenerEspions
+	Observer : Espion
+	Update() : utiliserRenseignement()
+	ConcreteObserver : JeuDeLaVieGUI
+
+Visitor
+	Client : principale
+	Element : Cellule
+	ConcreteElement : Cellule
+	Visitor : Parcourir
+	ConcreteVisitor : ParcourtNormal
+			  ParcourtFort
+	visit() : parcourtCellVivante()
+		  parcourtCellMorte()
+	accept() -> generer()
+
+State
+	Context -> cellule
+	State -> Situation
+	ConcreteSA = EstMorte
+	ConcreteSB = EstVivante
+	handle -> vit(),meurt()
+
+Command Pattern
+	Command : Activite
+	ConcreteCommand : vit,meurt
+	Invoker : JeuDeLaVie
+	Receiver : Cellule
+	Client : Principale
+	execute() : activer()
+	action() : meurt(),vit()
